@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Project specific
+data/recordings/trimmed_*
+outputs/*.md
+*.txt
+
+# OS
+.DS_Store
