@@ -15,8 +15,8 @@ class Summarizer:
         else:
             genai.configure(api_key=key)
         
-        # Using Gemini 1.5 Pro for its large context window
-        self.model = genai.GenerativeModel('gemini-1.5-pro')
+        # Using Gemini 1.5 Flash (latest) for increased rate limit availability
+        self.model = genai.GenerativeModel('gemini-flash-latest')
 
     def generate_summary(self, transcript, materials_text, summary_type="normal", language="english"):
         """
@@ -28,19 +28,23 @@ class Summarizer:
         
         prompts = {
             "informative": (
-                "Create a highly detailed and informative summary of the following lecture. "
-                "Include all main points, examples, and technical details discussed. "
-                "The target audience is students who missed the lecture and need to understand everything. "
+                "Create a comprehensive textbook-style explanation of the topics covered in this lecture. "
+                "Explain the concepts, theories, and examples in depth. "
+                "DO NOT use phrases like 'The lecture talks about', 'The speaker mentions', or 'In this video'. "
+                "Instead, directly state the facts and explanations as if writing an article or educational resource. "
+                "The goal is to teach the material to someone who has never seen the lecture."
             ),
             "brief": (
-                "Create a brief summary and a list of key 'memory-joggers' for the following lecture. "
-                "Focus on the main themes and important keywords. "
-                "The target audience is students who attended the lecture and just need a quick reminder. "
+                "Create a concise cheat-sheet of the key concepts from this lecture. "
+                "Provide direct definitions and bullet points of the main takeaways. "
+                "DO NOT use meta-language like 'The lecture covers'. "
+                "Focus strictly on the information itself for quick review."
             ),
             "normal": (
-                "Create a clear and balanced summary of the following lecture. "
-                "Highlight the core concepts and the structure of the talk. "
-                "The target audience is students who attended but want a structured review of the content. "
+                "Create a clear and structured summary of the material. "
+                "Organize the content logically with headings. "
+                "Explain the ideas directly without referring to 'the lecture' or 'the speaker'. "
+                "Focus on delivering the knowledge efficiently."
             )
         }
 
