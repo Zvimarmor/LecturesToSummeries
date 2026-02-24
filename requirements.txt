@@ -1,0 +1,9 @@
+openai-whisper
+google-generativeai
+pydub
+PyMuPDF
+python-pptx
+python-dotenv
+numpy
+soundfile
+librosa

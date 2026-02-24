@@ -59,10 +59,17 @@ python main.py --materials "presentation.pptx" --type informative
 | :--- | :--- |
 | `--audio` | Path to the audio file |
 | `--materials`| Path to the slide deck (PDF or PPTX) |
-| `--type` | Summary style: `normal`, `brief`, or `informative` |
+| `--type` | Summary style: `normal`, `brief`, or `informative` (Segmented) |
 | `--lang` | Target language: `english` or `hebrew` |
 | `--trim` | Enable automatic silence trimming for audio |
+| `--import_transcript` | Path to a saved transcript JSON to skip transcription phase |
 | `--output` | Custom path for the output `.md` file |
+
+### Segmented Summarization
+When using `--type informative`, the tool automatically:
+1. Splits the lecture into logical segments based on detected breaks.
+2. Summarizes each segment individually for maximum technical depth.
+3. Integrates the results into a cohesive textbook-style chapter.
 
 ## Requirements
 

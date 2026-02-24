@@ -5,10 +5,14 @@ __pycache__/
 venv/
 .env
 
-# Project specific
-data/recordings/trimmed_*
-outputs/*.md
-*.txt
+# Project Data & Outputs (Heavy files)
+data/
+outputs/
+trimmed_output.mp3
+
+# Research and Analysis (Side jobs)
+research_and_analysis/
+analyze_breaks.py
 
 # OS
 .DS_Store
